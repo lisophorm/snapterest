@@ -15,7 +15,7 @@ var StreamTweet = React.createClass({
             headerText: null
         }
     },
-    componentWillReceiveProps: function () {
+    componentWillReceiveProps: function (nextProps) {
         console.log('[Snapterest] StreamTweet 4. Running componentWillReceiveProps()');
         var currentTweetLength = this.props.tweet.text.length;
         var nextTweetLength = nextProps.tweet.text.length;
@@ -32,7 +32,7 @@ var StreamTweet = React.createClass({
         this.setState({
             headerText: headerText
         });
-        window.snapterest.numberoifReceivedTweets++;
+        window.snapterest.numberOfReceivedTweets++;
 
     },
     componentWillMount: function () {
@@ -42,9 +42,9 @@ var StreamTweet = React.createClass({
             headerText: 'Latest public photo from Twitter'
         });
         window.snapterest = {
-            numberoifReceivedTweets: 1,
+            numberOfReceivedTweets: 1,
             numberOfDisplayedTweets: 1
-        }
+        };
     },
     shouldComponentUpdate: function (nextProps, nextState) {
         console.log('[Snapterest] StreamTweet:5. Running shouldComponentUpdate');
